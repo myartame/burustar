@@ -34,12 +34,17 @@ class Contents extends CI_Model{
 	}
 
 	public function detail_get($contents_id){
-		$content = $this->db->select('C.id, C.subject, C.content, C.url, C.hits, S.order')->from('Contents AS C')->join('Series_Contents AS S', 'C.id = S.contents_id')->
-			where('C.id', $contents_id)->get()->result();
+		$this->db->select('C.id, C.series_id, C.subject, C.content, C.url, C.hits, S.order')->from('Contents AS C')->join('Series_Contents AS S', 'C.id = S.contents_id')->
+			where('C.id', $contents_id);
 
 		if ($content){
 			$this->db->where('id', $contents_id)->update('Contents', array('hits' => $content[0]->hits + 1));
 			return $content;
 		}
+	}
+
+	public function step_get($series_id, $order){
+		return $this->db->select('contents_id')->from('Series_Contents')->
+			where('series_id', $series_id)->where('order', $order)->get()->result();
 	}
 }

@@ -16,4 +16,8 @@ class View extends REST_Controller{
 	public function content_get(){
 		$this->response($this->contents->detail_get($this->get('contents_id')));
 	}
+
+	public function step_get(){
+		$this->response($this->contents->step_get($this->get('series_id'), $this->get('order')));
+	}
 }
