@@ -32,4 +32,14 @@ class Contents extends CI_Model{
 				like('T.name', $data)->get()->result();
 		}
 	}
+
+	public function detail_get($contents_id){
+		$content = $this->db->select('C.id, C.subject, C.content, C.url, C.hits, S.order')->from('Contents AS C')->join('Series_Contents AS S', 'C.id = S.contents_id')->
+			where('C.id', $contents_id)->get()->result();
+
+		if ($content){
+			$this->db->where('id', $contents_id)->update('Contents', array('hits' => $content[0]->hits + 1));
+			return $content;
+		}
+	}
 }
