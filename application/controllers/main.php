@@ -21,4 +21,8 @@ class Main extends REST_Controller{
 		$this->response($this->contents->get($this->get('state'), 
 			$this->get('limit'), $this->get('offset')));
 	}
+
+	public function search_get(){
+		$this->response($this->contents->search($this->get('kind'), $this->get('data')));
+	}
 }
