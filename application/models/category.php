@@ -6,13 +6,11 @@ class Category extends CI_Model{
 	}
 
 	public function get(){
-		$category = $this->db->get('category')->result();
+		$category = $this->db->from('Category')->get()->result();
 		foreach ($category as $value) {
-			$value->list = $this->db->where('category_id', 
-				(int)$value->id)->get('category_list')->result();
+			$value->list = $this->db->select('subject')->from('Series')->
+				where('category_id', $value->id)->get()->result();
 		}
 		return $category;
 	}
 } 
-
-?>
