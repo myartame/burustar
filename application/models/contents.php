@@ -29,7 +29,7 @@ class Contents extends CI_Model{
 		else{
 			return $this->db->select('C.id, C.subject, C.url, C.play_time')->
 				from('Contents AS C')->join('Tag AS T', 'C.id = T.contents_id')->
-				like('T.name', $data)->group_by('C.id')->get()->result();
+				like('T.name', $data)->get()->result();
 		}
 	}
 }
