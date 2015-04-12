@@ -8,10 +8,10 @@ class Contents extends CI_Model{
 	}
 
 	public function get($state, $limit, $offset){
-		$current_time = date("Y-m-s h:m:s");
+		$current_time = date("Y-m-d h:m:s");
 		
 		$contents = $this->db->select('id, subject, url, play_time')->from('Contents')->where('state', $state)->
-			//where(sprintf('start_time <= %s and %s <= end_time', $current_time, $current_time))->
+			where('start_time < ', $current_time)->where('end_time > ', $current_time)->
 			limit($limit, $offset)->get()->result();
 		foreach ($contents as $value) {
 			$value->tag = $this->db->select('name')->from('tag')->
@@ -23,13 +23,16 @@ class Contents extends CI_Model{
 
 	public function search($kind, $data){
 		$search_data = array();
+		$current_time = date("Y-m-d h:m:s");
 
 		$search_data['series'] = $this->db->select('id, subject, content, 
 			thumbnail_url, round_thumbnail_url')->from('Series')->
 			like('subject', $data)->or_like('content', $data)->get()->result();
 		$search_data['contents'] = $this->db->select('C.id, C.subject, C.url, C.play_time')->from('Contents AS C')->
 			join('Tag AS T', 'C.id = T.contents_id')->like('C.subject', $data)->
-			or_like('C.content', $data)->or_like('T.name', $data)->group_by('C.id')->get()->result();
+			or_like('C.content', $data)->or_like('T.name', $data)->
+			where('start_time < ', $current_time)->where('end_time > ', 
+			$current_time)->group_by('C.id')->get()->result();
 
 		return $search_data;
 	}
