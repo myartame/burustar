@@ -6,8 +6,6 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 		<meta name="description" content="">
 		<script src="js/jquery-1.11.2.js"></script>
-  		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-  		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 		<!–[if lt IE 9]>
 			<script src=”http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js”></script>
 		<![endif]–> 
@@ -27,23 +25,11 @@
 			</div>
 			<div id = "right">
 				<div id = "main">
-					<div id = "highlight">
-
-						<div id="highlight-slider">
-							<a href="#"><div class="highlight-slide"><img src="http://img.youtube.com/vi/WrjwGPb0Hvw/mqdefault.jpg" alt="image01" />
-							</div></a>
-							<a href="#"><div class="highlight-slide"><img src="http://img.youtube.com/vi/_y0NPD6sBuo/mqdefault.jpg" alt="image01" />
-							</div></a>
-							<a href="#"><div class="highlight-slide"><img src="http://img.youtube.com/vi/09R8_2nJtjg/mqdefault.jpg" alt="image01" />
-							</div></a>
-							<a href="#"><div class="highlight-slide"><img src="http://img.youtube.com/vi/0KSOMA3QBU0/mqdefault.jpg" alt="image01" />
-							</div></a>
-						</div>
+					<div class = "search-title">
+						'사랑은 밀어붙이는거야!' 검색 결과
 					</div>
-					<p class = "division-line">
-					</p>
 					<div class = "division-main">
-						<p class = "division-title">신규 영상</p>
+						<p class = "division-title">< 채널 5개 ></p>
 						<div class = "division-container">
 							<a href="#">
 								<div class = "video-thumb">
@@ -63,10 +49,60 @@
 									<p class = "thumb-title">에미넴 헠헠</p>
 								</div>
 							</a>
-						</div>
-						<div class = "load-more">
 							<a href="#">
-								<img src = "images/more.png" class = "load-more-btn">
+								<div class = "video-thumb">
+									<img src = "http://img.youtube.com/vi/bWMw4vE3J8s/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#" class = "mid">
+								<div class = "video-thumb">
+									<img src = "http://img.youtube.com/vi/t3217H8JppI/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<p class = "division-line">
+					</p>
+					<div class = "division-main">
+						<p class = "division-title">< 영상 6개 ></p>
+						<div class = "division-container">
+							<a href="#">
+								<div class = "video-thumb">
+									<img src = "http://img.youtube.com/vi/bWMw4vE3J8s/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#" class = "mid">
+								<div class = "video-thumb">
+									<img src = "http://img.youtube.com/vi/t3217H8JppI/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#">
+								<div class = "video-thumb">
+									<img src = "http://img.youtube.com/vi/CdXesX6mYUE/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#">
+								<div class = "video-thumb">
+									<img src = "http://img.youtube.com/vi/bWMw4vE3J8s/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#" class = "mid">
+								<div class = "video-thumb">
+									<img src = "http://img.youtube.com/vi/t3217H8JppI/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#">
+								<div class = "video-thumb">
+									<img src = "http://img.youtube.com/vi/CdXesX6mYUE/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
 							</a>
 						</div>
 					</div>
@@ -81,32 +117,17 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/javascript" src="slick/slick.min.js"></script>
 	<script>
-		 $(document).ready(function(){
-	      $('#highlight-slider').slick({
-			  autoplay: true,
-			  dots    : true,
-			  arrows  : true
-	      });
-	      $(".slick-slider").css("margin-bottom","30px");
-	    });
 	</script>
 
 	<style>
-		#highlight{
-			width : 96%;
-			margin-left : auto;
-			margin-right : auto;
-			margin-top : 2%;
-			margin-bottom : 2%;
-			display : block;
-			overflow:hidden; 
-			background-color : #FFFFFF;
-			padding-bottom : 2%;
+		.division-title{
+			color : #9c9c9c;
 		}
-		.highlight-slide > img{
-			width : 100%;
+		.search-title{
+			font-size : 22px;
+			margin-left : 2%;
+			margin-top : 2%;
 		}
 		/* Mobile – 767px 이하 해상도에서 해석하는 코드 */
 		@media (max-width:767px){

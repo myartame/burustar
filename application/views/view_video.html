@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>burustar tv</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+		<meta name="description" content="">
+		<script src="js/jquery-1.11.2.js"></script>
+  		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+		<!–[if lt IE 9]>
+			<script src=”http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js”></script>
+		<![endif]–> 
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+	</head>
+	<body>
+		<div id = "top">
+			<?php
+				echo file_get_contents("./top.html");
+			?>
+		</div>
+		<div id = "content">
+			<div id = "left">
+				<?php
+					echo file_get_contents("./left.html");
+				?>
+			</div>
+			<div id = "right">
+				<div id = "main">
+					<div id = "video-area">
+        				<div id="player"></div>
+        				<div id = "video-content">
+        					<div class = "tb" style="width : 100%;">
+        						<div class = "tb-cl">
+        							2화 - 사랑은 밀어붙이는 거야!
+        						</div>
+								<div class = "tb-cl">
+									<div style="float : right">
+										<a href="#">
+        									<div style="float:left; vertical-align:middle;"><img src = "images/pre-1.png"></div>
+        									<div style="float:left; vertical-align:middle; padding-top : 3px;">&nbsp; 이전화 보기 </div>
+        								</a>
+        								<div style="float:left; vertical-align:middle; padding-top : 3px;">&nbsp;|&nbsp;</div>
+        								<a href="#">
+        									<div style="float:left; vertical-align:middle; padding-top : 3px;">다음화 보기 &nbsp;</div>
+											<div style="float:left; vertical-align:middle;"><img src = "images/next-1.png"></div>
+										</a>
+									</div>
+        						</div>
+        					</div>
+        					<div class = "tb" style="margin-top : 10px;">
+								<img src = "images/bookmark.png" class = "tb-cl">
+        						<div class = "tb-cl" style="font-size : 20px; font-style : bold;">
+        							&nbsp;&nbsp;&nbsp;&nbsp;새봄의 하루
+        						</div>
+        					</div>
+        				</div>
+					</div>
+					<p class = "division-line">
+					</p>
+					<div id = "high">
+						<div id = "slider" style="width : 90%; margin-left : auto; margin-right : auto;">
+							<a href="#">
+								<div class = "video-thumb2">
+									<img src = "http://img.youtube.com/vi/bWMw4vE3J8s/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#">
+								<div class = "video-thumb2">
+									<img src = "http://img.youtube.com/vi/t3217H8JppI/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#">
+								<div class = "video-thumb2">
+									<img src = "http://img.youtube.com/vi/CdXesX6mYUE/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#">
+								<div class = "video-thumb2">
+									<img src = "http://img.youtube.com/vi/bWMw4vE3J8s/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#">
+								<div class = "video-thumb2">
+									<img src = "http://img.youtube.com/vi/t3217H8JppI/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+							<a href="#">
+								<div class = "video-thumb2">
+									<img src = "http://img.youtube.com/vi/CdXesX6mYUE/mqdefault.jpg"/>
+									<p class = "thumb-title">에미넴 헠헠</p>
+								</div>
+							</a>
+						</div>	
+					</div>
+					
+
+					<p class = "division-line">
+					</p>
+					<div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-numposts="5" data-colorscheme="light"></div>
+					
+					<div id = "bottom">
+						<?php
+							echo file_get_contents("./bottom.html");
+						?>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="slick/slick.min.js"></script>
+	<script>
+		window.fbAsyncInit = function() {
+	  	$(".fb-comments").attr("href",location.href);
+	  	$(".fb-comments").attr("data-width",$(".fb-comments").parent().width()*0.96);
+
+
+	    FB.init({
+	      appId      : '1564397647182760',
+	      xfbml      : true,
+	      version    : 'v2.3',
+	    });
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/ko_KR/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+
+
+	var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          width: '100%',
+          videoId: 'M7lc1UVf-VE',
+        });
+      }
+
+
+	 $(document).ready(function(){
+      $('#slider').slick({
+		  slidesToShow: 3,
+		  slidesToScroll: 1,
+		  arrows : true,
+      });
+    });
+
+	</script>
+
+	<style>
+		#high{
+			width : 96%; 
+			height : 100%;
+			margin-left : auto; 
+			margin-right : auto;
+			padding-top : 2%;
+		}
+		.video-thumb2{
+			margin-left : 10px;
+			margin-right : 10px;
+		}
+		a:link,a:visited{
+			text-decoration: none;
+			color : #000000;
+		}
+		.video-thumb2 img{
+			width : 100%;
+		}
+		.fb-comments, #video-area, #video-content{
+			width : 96%;
+			margin-left : auto;
+			margin-right : auto;
+			margin-top : 2%;
+			margin-bottom : 2%;
+			display : block;
+			overflow:auto; 
+		}
+		#video-area, #high, .fb-comments{
+			background-color : #FFFFFF;
+		}
+		#video-pre-next, #video-pre, #video-next{
+			display : inline;
+		}
+		#video-title{
+			float : left;
+			font : 1.2em bold;
+		}
+		#video-pre-next{
+			float : right;
+		}
+		#video-pre-next p{
+			margin : 0px;
+			display : inline;
+		}
+		#video-pre-next a:link,
+		#video-pre-next a:visited{
+			text-decoration: none;
+			color : black;
+		}
+		/* Mobile – 767px 이하 해상도에서 해석하는 코드 */
+		@media (max-width:767px){
+
+		}
+
+		/* Tablet – 768px~1024px 해상도에서 해석하는 코드 */
+		@media (min-width:768px) and (max-width:1024px){
+
+		}
+
+		/* Desktop – 1025px 이상 해상도에서 해석하는 코드 */
+		@media (min-width:1025px){
+
+		}
+	</style>
+</html>

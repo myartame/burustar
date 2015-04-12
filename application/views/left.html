@@ -1,0 +1,76 @@
+<div id="left-main">
+  <ul id="left-root">
+    <li class="classify1"><a href="#" onclick = "location.href = 'index.html'; return false;"><img src="images/home.png"><div>&nbsp;&nbsp;Home</div></a>
+    </li>
+    <li class="classify1"><img src="images/category.png">&nbsp;&nbsp;Category
+    <ul>
+      <li class="classify2">드라마
+        <ul>
+          <li class="classify3"><a href="#">- 새벽의 하루</a></li>
+        </ul>
+      </li>
+      <li class="classify2">예능
+        <ul>
+          <li class="classify3"><a href="#">- 용감한 얼짱들</a></li>
+          <li class="classify3"><a href="#">- 파쿠르 공략</a></li>
+          <li class="classify3"><a href="#">- 상남자의 미친짓</a></li>
+          <li class="classify3"><a href="#">- 세 여자 골방토크</a></li>
+          <li class="classify3"><a href="#">- 새벽의 뷰티 꿀팁</a></li>
+          <li class="classify3"><a href="#">- 나는 가수 연습생이다</a></li>
+        </ul>
+      </li>
+    </ul>
+    </li>
+    <li class="classify1"><a href="http://www.burustar.com"><img src="images/contact.png"><div>&nbsp;&nbsp;Contact us</div></a></li>
+  </ul>
+</div>
+
+<style type="text/css">
+	#left-root li {list-style:none; margin-left: -10px;}
+ 	#left-root li.classify1 {font-weight: bold; font-size: 1.2em; padding-top : 40px;}
+ 	#left-root li.classify2 {font-weight : bold; font-size: 0.8em; margin-top : 20px; margin-left: -20px}
+ 	#left-root li.classify3 {font-weight : normal; font-size: 1.0em; margin-top : 10px; margin-left: -30px}
+  #left-root li.classify1 a{
+    display:table;
+  }
+  #left-root li.classify1 a > div{
+    display:table-cell;
+    vertical-align : middle;
+  }
+ 	
+	li a:link { color: black; text-decoration: none;}
+ 	li a:visited { color: black; text-decoration: none;}
+ 	li a:hover { color: white; text-decoration: none; background-color : rgb(255,0,0);}
+
+  #left-main{
+    width : 90%;
+    padding-left : 4%;
+    padding-right : 4%;
+    height : 96%;
+    overflow: auto;
+    /*border-left-color: #DDDDDD;
+    border-left-style : solid;
+    border-left-width: 1px;
+    border-right-color: #DDDDDD;
+    border-right-style : solid;
+    border-right-width: 1px;*/
+  }
+  #left-root{
+    padding-bottom : 15px;
+    /*border-bottom-color: #DDDDDD;
+    border-bottom-style : solid;
+    border-bottom-width: 1px;*/
+    background-color : #FFFFFF;
+  }
+  
+    @media (max-width:1024px){
+      #left{
+        display: none;
+      }
+    }
+
+    /* Desktop – 1025px 이상 해상도에서 해석하는 코드 */
+    @media (min-width:1025px){
+
+    }
+</style>
