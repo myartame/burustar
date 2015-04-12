@@ -22,15 +22,16 @@ class Contents extends CI_Model{
 	}
 
 	public function search($kind, $data){
-		if ($kind == 'contents'){
-			return $this->db->from('Contents')->like('subject', $data)->
-				or_like('content', $data)->get()->result();
-		}
-		else{
-			return $this->db->select('C.id, C.subject, C.url, C.play_time')->
-				from('Contents AS C')->join('Tag AS T', 'C.id = T.contents_id')->
-				like('T.name', $data)->get()->result();
-		}
+		$search_data = array();
+
+		$search_data['series'] = $this->db->select('id, subject, content, 
+			thumbnail_url, round_thumbnail_url')->from('Series')->
+			like('subject', $data)->or_like('content', $data)->get()->result();
+		$search_data['contents'] = $this->db->select('C.id, C.subject, C.url, C.play_time')->from('Contents AS C')->
+			join('Tag AS T', 'C.id = T.contents_id')->like('C.subject', $data)->
+			or_like('C.content', $data)->or_like('T.name', $data)->group_by('C.id')->get()->result();
+
+		return $search_data;
 	}
 
 	public function detail_get($contents_id){
