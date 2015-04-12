@@ -9,8 +9,8 @@ class View extends REST_Controller{
 		$this->load->model('contents', '', true);
 	}
 
-	public function index(){
-
+	public function index_get(){
+		$this->load->view('view.html');
 	}
 
 	public function content_get(){

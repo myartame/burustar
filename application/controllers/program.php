@@ -9,7 +9,8 @@ class Program extends REST_Controller{
 		$this->load->model('series', '', true);
 	}
 
-	public function index(){
+	public function index_get(){
+		$this->load->view('program.html');
 	}
 
 	public function series_get(){
