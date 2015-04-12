@@ -11,7 +11,8 @@ class Main extends REST_Controller{
 		$this->load->model('user', '', true);
 	}
 
-	public function index(){
+	public function index_get(){
+		$this->load->view('index.html');
 	}
 
 	public function category_get(){

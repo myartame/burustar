@@ -11,18 +11,18 @@
 		<!–[if lt IE 9]>
 			<script src=”http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js”></script>
 		<![endif]–> 
-		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href=<?= base_url() . "application/assets/css/common.css" ?> />
 	</head>
 	<body style="min-width: 720px;">
 		<div id = "top">
 			<?php
-				echo file_get_contents("./top.html");
+				echo file_get_contents(base_url() . "application/views/top.html");
 			?>
 		</div>
 		<div id = "content">
 			<div id = "left">
 				<?php
-					echo file_get_contents("./left.html");
+					echo file_get_contents(base_url() . "application/views/left.html");
 				?>
 			</div>
 			<div id = "right">
