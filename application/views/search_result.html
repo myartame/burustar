@@ -6,21 +6,26 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 		<meta name="description" content="">
 		<script src="js/jquery-1.11.2.js"></script>
+		<?php
+  			function get_url($url){
+  				echo $base_url() . 'application/' . $url;
+  			}
+  		?>
 		<!–[if lt IE 9]>
 			<script src=”http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js”></script>
 		<![endif]–> 
-		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href=<?= get_url('assets/css/common.css'); ?> />
 	</head>
 	<body style="min-width: 720px;">
 		<div id = "top">
 			<?php
-				echo file_get_contents("./top.html");
+				echo file_get_contents(get_url("views/top.html"));
 			?>
 		</div>
 		<div id = "content">
 			<div id = "left">
 				<?php
-					echo file_get_contents("./left.html");
+					echo file_get_contents(get_url("views/left.html"));
 				?>
 			</div>
 			<div id = "right">
@@ -109,7 +114,7 @@
 
 					<div id = "bottom">
 						<?php
-							echo file_get_contents("./bottom.html");
+							echo file_get_contents(get_url("views/bottom.html"));
 						?>
 					</div>
 

@@ -1,0 +1,182 @@
+
+<div id = "lan-choice">
+	<div id="lan-choice-sub-div">
+		<div style="display:table-cell; vertical-align : middle; text-align:center;">
+			<div id = "lan-choice-content">
+				<div style="display:inline;"> Choose your language &nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<div style="display:inline;"><a href="#">English</a></div>
+				<div style="display:inline;"><a href="#">中國語</a></div>
+				<div style="display:inline;"><a href="#">한국어</a></div>
+			</div>
+				<a href="#" onclick="languageToggle();"><img src = <?= get_url('assets/images/magnifier.png'); ?> style="float:right; margin-right : 2%"></a>
+		</div>
+	</div>
+</div>
+<form id="search-form" method="get" action="search.html">
+	<div class = "top-main">
+		<div class = "search-area">
+			<a href = "index.html"><img src=<?= get_url('assets/images/logo.png'); ?> alt="burustar tv"></a>
+			<div id = "top-right">
+				<input type = "text" name = "query" id = "query" value="검색어를 입력해주세요"/>
+				<a href = "#" class = "submit-button" onclick="document.getElementById('search-form').submit(); return false;"><img src=<?= get_url('assets/images/magnifier.png'); ?> alt="search"></a>
+				<a href = "#" onclick="languageToggle(); return false;"><div class="language-button" style="display:table"><div style = "display:table-cell">language</div></div></a>
+			</div>
+		</div>
+	</div>
+</form>
+
+<style type="text/css">
+	#lan-choice{
+		background-color:#001d60;
+		height : 50px;
+		width : 100%;
+		color : #FFFFFF;
+		font-size : 20px;
+	}
+	#lan-choice-sub-div{
+		margin-left : auto; 
+		margin-right : auto; 
+		height : 100%; 
+		display : table;
+	}
+	#lan-choice-content{
+		margin-left : auto; 
+		margin-right : auto; 
+		display:inline-block;
+	}
+	#lan-choice-content a{
+		padding-left : 20px;
+		padding-right : 20px;
+		padding-top : 5px;
+		padding-bottom : 5px;
+		border-color : #FFFFFF;
+		border-style : solid;
+		border-width : 1px;
+	}
+
+	#lan-choice-content a:link,
+	#lan-choice-content a:visited{
+		text-decoration: none;
+		color : white;
+	}
+	.top-main{
+		 border-top-style : solid;
+		 border-top-width : 8px;
+		 border-top-color : #FFFFFF;
+	}
+	.search-area  * {
+		vertical-align: middle;
+	}
+	.search-area  #top-right{
+		float : right;
+		margin-right : 2%;
+	}
+	.search-area img{
+		 height:36px;
+	}
+	.search-area input{
+		margin-right : 10px;
+		border : 0px;
+		background-color:transparent;
+		height : 36px;
+		width : 200px;
+	}
+	.search-area input:focus{
+		outline: 0;
+	}
+	.search-area .submit-button{
+		margin-right : 50px;
+		height : 26px;
+	}
+	.search-area .language-button{
+		background-color : #404040;
+		text-align: center;
+		vertical-align: middle;
+		color : #FFFFFF;
+		height : 36px;
+		float : right;
+	}
+
+	/* Tablet – 768px~1024px 해상도에서 해석하는 코드 */
+	@media (max-width:1024px){
+		.search-area{
+			width : 100%;
+		}
+	}
+
+	/* Desktop – 1025px 이상 해상도에서 해석하는 코드 */
+	@media (min-width:1025px){
+		.search-area{
+			width : 1000px;
+			margin-left : auto;
+			margin-right : auto;
+		}
+		#lan-choice-sub-div{
+			width : 1000px; 
+		}
+		.search-area .language-button{
+			width : 100px;
+		}
+	}
+</style>
+
+<script>
+	function setCookie(cName, cValue, cDay){
+        var expire = new Date();
+        expire.setDate(expire.getDate() + cDay);
+        cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+        if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+        document.cookie = cookies;
+    }
+ 
+    // 쿠키 가져오기
+    function getCookie(cName) {
+        cName = cName + '=';
+        var cookieData = document.cookie;
+        var start = cookieData.indexOf(cName);
+        var cValue = '';
+        if(start != -1){
+            start += cName.length;
+            var end = cookieData.indexOf(';', start);
+            if(end == -1)end = cookieData.length;
+            cValue = cookieData.substring(start, end);
+        }
+        return unescape(cValue);
+    }
+	function languageToggle()
+	{
+		if(getCookie("lan_off") == "0")
+		{
+			setCookie("lan_off","1");
+			$("#lan-choice").css("display","none");
+			$("#top").css("height","50px");
+		}
+		else
+		{
+			setCookie("lan_off","0");
+			$("#lan-choice").css("display","block");
+			$("#top").css("height","100px");
+		}
+	}
+	$(document).ready (function () {
+	   $('.search-area input').each (function () {
+	      $(this).data ('value', $(this).val ());
+   });
+
+   $('.search-area input').focus (function (){
+      if ($(this).val () == $(this).data('value'))
+      {
+         $(this).val ('');
+      }
+   });
+
+   $('.search-area input').blur (function (){
+      if ($(this).val () == '')
+      {
+         $(this).val ($(this).data('value'));
+      }
+   });
+   setCookie("lan_off",(1-getCookie("lan_off")*1)+"");
+   languageToggle();
+});
+</script>
