@@ -13,23 +13,14 @@
 		?>
 
 		<script src="js/jquery-1.11.2.js"></script>
-		<?php
-  			function get_url($url){
-  				echo $base_url() . 'application/' . $url;
-  			}
-  		?>
   		<link rel="stylesheet" type="text/css" href=<?= get_url('assets/slick/slick.css'); ?> />
   		<link rel="stylesheet" type="text/css" href=<?= get_url('assets/slick/slick-theme.css'); ?> />
   		
 		<!–[if lt IE 9]>
 			<script src=”http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js”></script>
 		<![endif]–> 
-<<<<<<< HEAD
 		<!-- <link rel="stylesheet" type="text/css" href=<?= base_url() . "application/assets/css/common.css" ?> /> -->
 		<link rel="stylesheet" type="text/css" href=<?= get_url("assets/css/common.css"); ?> />
-=======
-		<link rel="stylesheet" type="text/css" href=<?= get_url('assets/css/common.css'); ?> />
->>>>>>> 7260848fd6581ddcbd65d2ab5542b11db97f3755
 	</head>
 	<body style="min-width: 720px;">
 		<div id = "top">
