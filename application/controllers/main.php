@@ -9,6 +9,7 @@ class Main extends REST_Controller{
 		$this->load->model('category', '', true);
 		$this->load->model('contents', '', true);
 		$this->load->model('user', '', true);
+		$this->load->model('series', '', true);
 	}
 
 	public function index_get(){
@@ -32,5 +33,10 @@ class Main extends REST_Controller{
 		$this->response('user', $this->user->add($this->post('email'),
 			$this->post('password'), $this->post('facebook_token'),
 			$this->post('level')) ? 201 : 400);
+	}
+
+	public function series_get(){
+		$this->response($this->series->list_get($this->get('kind'),
+			$this->get('limit'), $this->get('offset')));
 	}
 }

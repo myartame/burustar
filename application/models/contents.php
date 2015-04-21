@@ -8,14 +8,22 @@ class Contents extends CI_Model{
 	}
 
 	public function get($state, $limit, $offset){
-		$current_time = date("Y-m-d h:m:s");
+		$current_time = date("Y-m-d H:m:s");
 		
-		$contents = $this->db->select('id, subject, url, play_time')->from('Contents')->where('state', $state)->
-			where('start_time < ', $current_time)->where('end_time > ', $current_time)->
-			limit($limit, $offset)->get()->result();
-		foreach ($contents as $value) {
-			$value->tag = $this->db->select('name')->from('tag')->
-				where('contents_id', $value->id)->get()->result();
+		$this->db->select('id, url, end_time')->from('Contents')->where('state', $state)->
+			where('start_time < ', $current_time)->where('create_time >= ', date('Y-m-d H:m:s', strtotime('-7 days')));
+		if ($limit)
+			$this->db->limit($limit, $offset);
+		$contents = $this->db->order_by('id', 'DESC')->get()->result();
+		
+		foreach ($contents as $key => $value) {
+			if ($value->end_time != null && $value->end_time < $current_time){
+				unset($contents[$key]);
+			}
+			else{
+				$value->tag = $this->db->select('name')->from('tag')->
+					where('contents_id', $value->id)->get()->result();
+			}
 		}
 
 		return $contents;
