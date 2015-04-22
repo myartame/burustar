@@ -7,9 +7,9 @@ class Series extends CI_Model{
 		date_default_timezone_set('Asia/Seoul');
 	}
 
-	public function get($series_id, $kind = 'newest'){
+	public function get($series_id){
 		return $this->db->from('Series')->where('id', $series_id)->
-			where('state', $kind)->get()->result();
+			get()->result();
 	}
 
 	public function list_get($kind = 'newest', $limit, $offset){
@@ -24,13 +24,19 @@ class Series extends CI_Model{
 	public function contents_list($series_id, $order){
 		$current_time = date("Y-m-d H:m:s");
 
-		$this->db->select('C.id, C.url')->
+		$this->db->select('C.id, C.subject, C.content, C.url, C.end_time')->
 			from('Series_Contents AS S')->join('Contents AS C', 'S.contents_id = C.id')->
-			where('S.series_id', $series_id)->where('start_time < ', $current_time)->
-			where('end_time > ', $current_time);
+			where('S.series_id', $series_id)->where('start_time < ', $current_time);
 		if ($order)
 			$this->db->where('S.order <= ', $order - 1)->limit(3, 0);
 
-		return $this->db->get()->result();
+		$contents_list = $this->db->get()->result();
+		foreach ($contents_list as $key => $value) {
+			if ($value->end_time != null && $value->end_time < $current_time){
+				unset($contents_list[$key]);
+			}
+		}
+
+		return $contents_list;
 	}
 }

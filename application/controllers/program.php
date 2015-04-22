@@ -14,8 +14,7 @@ class Program extends REST_Controller{
 	}
 
 	public function series_get(){
-		$this->response($this->series->get($this->get('series_id'),
-			$this->get('kind')));
+		$this->response($this->series->get($this->get('series_id')));
 	}
 
 	public function series_list_get(){

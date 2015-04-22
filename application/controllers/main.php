@@ -26,7 +26,7 @@ class Main extends REST_Controller{
 	}
 
 	public function search_get(){
-		$this->response($this->contents->search($this->get('kind'), $this->get('data')));
+		$this->response($this->contents->search($this->get('data')));
 	}
 
 	public function user_post(){
