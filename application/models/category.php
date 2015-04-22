@@ -8,7 +8,7 @@ class Category extends CI_Model{
 	public function get(){
 		$category = $this->db->from('Category')->get()->result();
 		foreach ($category as $value) {
-			$value->list = $this->db->select('subject')->from('Series')->
+			$value->list = $this->db->select('id AS series_id, subject')->from('Series')->
 				where('category_id', $value->id)->get()->result();
 		}
 		return $category;
