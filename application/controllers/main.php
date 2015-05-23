@@ -17,7 +17,7 @@ class Main extends REST_Controller{
 	}
 
 	public function category_get(){
-		$this->response($this->category->get());
+		$this->response($this->category->get($this->get('language')));
 	}
 
 	public function contents_get(){

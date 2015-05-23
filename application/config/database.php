@@ -59,14 +59,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 
-$active_group = 'default';
+$active_group = 'ko';
 $query_builder = TRUE;
 
-$db['default'] = array(
+$db['ko'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
+	'hostname' => '14.63.168.144',
 	'username' => 'root',
-	'password' => '486255',
+	'password' => 'rhdmsrl11',
+	'database' => 'burustar',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => TRUE,
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+$db['en'] = array(
+	'dsn'	=> '',
+	'hostname' => '14.63.170.90',
+	'username' => 'root',
+	'password' => 'rhdmsrl11',
 	'database' => 'burustar',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
