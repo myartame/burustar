@@ -22,7 +22,7 @@ class Series extends CI_Model{
 	}
 
 	public function contents_list($series_id, $order){
-		$current_time = date("Y-m-d H:m:s");
+		$current_time = date("Y-m-d H:i:s");
 
 		$this->db->select('C.id, C.subject, C.content, C.url, C.end_time')->
 			from('Series_Contents AS S')->join('Contents AS C', 'S.contents_id = C.id')->
