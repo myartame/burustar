@@ -5,10 +5,12 @@ class Category extends CI_Model{
 		parent::__construct();
 	}
 
-	public function get(){
-		$category = $this->db->from('Category')->get()->result();
+	public function get($language){
+		$current_db = $this->db_loader->get($language);
+
+		$category = $current_db->from('Category')->get()->result();
 		foreach ($category as $value) {
-			$value->list = $this->db->select('subject')->from('Series')->
+			$value->list = $current_db->select('id AS series_id, subject')->from('Series')->
 				where('category_id', $value->id)->get()->result();
 		}
 		return $category;
